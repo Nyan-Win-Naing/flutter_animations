@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:padc_animations/implicit_animations/explicit_animation_favourite_button.dart';
 
 const kAnimationDuration = const Duration(milliseconds: 500);
 const kAnimationDurationForScreenFadeIn = const Duration(milliseconds: 1000);
@@ -33,15 +34,24 @@ class _ImplicitAnimationsState extends State<ImplicitAnimations> {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    AnimatedContainer(
-                      width: (isNewDimensions) ? 350 : 250,
-                      height: (isNewDimensions) ? 300 : 200,
-                      // curve: Curves.easeInCubic,
-                      duration: kAnimationDuration,
-                      child: Image.asset(
-                        "assets/bird_image.png",
-                        fit: BoxFit.cover,
-                      ),
+                    Stack(
+                      children: [
+                        AnimatedContainer(
+                          width: (isNewDimensions) ? 350 : 250,
+                          height: (isNewDimensions) ? 300 : 200,
+                          // curve: Curves.easeInCubic,
+                          duration: kAnimationDuration,
+                          child: Image.asset(
+                            "assets/bird_image.png",
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                        Positioned(
+                          top: 0,
+                          right: 0,
+                          child: ExplicitAnimationFavouriteIcon(),
+                        ),
+                      ],
                     ),
                     AnimatedSize(
                       duration: kAnimationDuration,
