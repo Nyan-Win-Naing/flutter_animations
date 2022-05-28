@@ -45,12 +45,12 @@ class _ExplicitAnimationFavouriteIconState
       builder: (context, _) => IconButton(
         iconSize: 30,
         onPressed: () {
-          // if(isAnimationComplete) {
-          //   _controller.reverse();
-          // } else {
-          //   _controller.forward();
-          // }
-          _controller.repeat();
+          if(isAnimationComplete) {
+            _controller.reverse();
+          } else {
+            _controller.forward();
+          }
+          // _controller.repeat();
         },
         icon: Icon(
           Icons.favorite,
